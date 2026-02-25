@@ -17,14 +17,14 @@ class rahad_Admin_Menu {
 	/**
 	 * Main plugin reference.
 	 *
-	 * @var rahad_Plugin
+	 * @var RahPowerAddons
 	 */
 	private $rahad_plugin;
 
 	/**
 	 * Constructor.
 	 *
-	 * @param rahad_Plugin $rahad_plugin Plugin singleton.
+	 * @param RahPowerAddons $rahad_plugin Plugin singleton.
 	 */
 	public function __construct( $rahad_plugin ) {
 		$this->rahad_plugin = $rahad_plugin;
@@ -81,7 +81,7 @@ class rahad_Admin_Menu {
 		// Check if build files exist
 		$rahad_css_file = rahad_PLUGIN_PATH . 'build/admin-dashboard.css';
 		$rahad_js_file  = rahad_PLUGIN_PATH . 'build/admin-dashboard.js';
-		
+
 		// Only enqueue if build files exist
 		if ( file_exists( $rahad_css_file ) && file_exists( $rahad_js_file ) ) {
 			$rahad_asset_file = rahad_PLUGIN_PATH . 'build/admin-dashboard.asset.php';
@@ -120,30 +120,18 @@ class rahad_Admin_Menu {
 				)
 			);
 		} else {
-			// Fallback: Show simple admin notice if build files are missing
-			add_action( 'admin_notices', array( $this, 'rahad_build_missing_notice' ) );
+			// Fallback: Show simple admin page if build files are missing
+			$this->rahad_render_legacy_dashboard();
 		}
 	}
 
 	/**
-	 * Show notice about missing build files.
+	 * Render legacy dashboard (when React build not available).
 	 *
 	 * @return void
 	 */
-	public function rahad_build_missing_notice() {
-		?>
-		<div class="notice notice-warning">
-			<p>
-				<?php
-				printf(
-					/* translators: %s: Build command */
-					esc_html__( 'Rah Power Addons: Admin dashboard build files are missing. Please run %s to generate them.', 'rah-power-addons' ),
-					'<code>npm run build</code>'
-				);
-				?>
-			</p>
-		</div>
-		<?php
+	private function rahad_render_legacy_dashboard() {
+		// This renders a simple dashboard without React
 	}
 
 	/**
@@ -155,13 +143,61 @@ class rahad_Admin_Menu {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
+
+		// Check if build files exist
+		$rahad_css_file = rahad_PLUGIN_PATH . 'build/admin-dashboard.css';
+		$rahad_js_file  = rahad_PLUGIN_PATH . 'build/admin-dashboard.js';
+
+		if ( file_exists( $rahad_css_file ) && file_exists( $rahad_js_file ) ) {
+			// Render React dashboard
+			?>
+			<div class="wrap rahad-dashboard-wrap">
+				<h1><?php echo esc_html__( 'Rah Power Addons for Elementor', 'rah-power-addons' ); ?></h1>
+				<div id="rahad-admin-dashboard-root"></div>
+				<noscript>
+					<p><?php echo esc_html__( 'JavaScript is required for the React dashboard.', 'rah-power-addons' ); ?></p>
+				</noscript>
+			</div>
+			<?php
+		} else {
+			// Render legacy dashboard
+			$this->rahad_render_legacy_dashboard_page();
+		}
+	}
+
+	/**
+	 * Render legacy dashboard page.
+	 *
+	 * @return void
+	 */
+	private function rahad_render_legacy_dashboard_page() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 		?>
 		<div class="wrap rahad-dashboard-wrap">
 			<h1><?php echo esc_html__( 'Rah Power Addons for Elementor', 'rah-power-addons' ); ?></h1>
-			<div id="rahad-admin-dashboard-root"></div>
-			<noscript>
-				<p><?php echo esc_html__( 'JavaScript is required for the React dashboard.', 'rah-power-addons' ); ?></p>
-			</noscript>
+			<div class="rahad-legacy-dashboard">
+				<div class="rahad-welcome-panel">
+					<h2><?php esc_html_e( 'Welcome to Rah Power Addons!', 'rah-power-addons' ); ?></h2>
+					<p><?php esc_html_e( 'Get started with our powerful Elementor widgets.', 'rah-power-addons' ); ?></p>
+					
+					<?php if ( ! did_action( 'elementor/loaded' ) ) : ?>
+						<div class="notice notice-warning">
+							<p><?php esc_html_e( 'Elementor is not installed or activated. Please install and activate Elementor to use Rah Power Addons widgets.', 'rah-power-addons' ); ?></p>
+						</div>
+					<?php else : ?>
+						<p><strong><?php esc_html_e( 'Elementor Status:', 'rah-power-addons' ); ?></strong> <?php esc_html_e( 'Active', 'rah-power-addons' ); ?></p>
+					<?php endif; ?>
+
+					<h3><?php esc_html_e( 'Quick Links', 'rah-power-addons' ); ?></h3>
+					<ul>
+						<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=rahad_dashboard' ) ); ?>"><?php esc_html_e( 'Widget Settings', 'rah-power-addons' ); ?></a></li>
+						<li><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=rahad_template' ) ); ?>"><?php esc_html_e( 'Header Footer Builder', 'rah-power-addons' ); ?></a></li>
+						<li><a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=rahad_template' ) ); ?>"><?php esc_html_e( 'Create New Template', 'rah-power-addons' ); ?></a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 		<?php
 	}

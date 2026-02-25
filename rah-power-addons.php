@@ -304,3 +304,80 @@ final class RahPowerAddons {
 	 * @access public
 	 */
 	public function admin_notice_minimum_elementor_version() {
+		if ( ! current_user_can( 'activate_plugins' ) ) {
+			return;
+		}
+		?>
+		<div class="notice notice-error">
+			<p>
+				<?php
+				echo sprintf(
+					/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
+					esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'rah-power-addons' ),
+					'<strong>' . esc_html__( 'Rah Power Addons', 'rah-power-addons' ) . '</strong>',
+					'<strong>' . esc_html__( 'Elementor', 'rah-power-addons' ) . '</strong>',
+					rahad_MIN_ELEMENTOR_VERSION
+				);
+				?>
+			</p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Get dashboard bootstrap payload.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @return array<string,mixed>
+	 */
+	public function rahad_get_dashboard_data() {
+		$rahad_available_widgets = isset( $this->rahad_widget_manager ) ? $this->rahad_widget_manager->rahad_get_available_widgets() : array();
+		$rahad_enabled_widgets    = isset( $this->rahad_widget_manager ) ? $this->rahad_widget_manager->rahad_get_enabled_widgets() : array();
+
+		return array(
+			'rahad_widgets' => array(
+				'rahad_available' => $rahad_available_widgets,
+				'rahad_enabled'   => $rahad_enabled_widgets,
+			),
+			'rahad_settings' => array(
+				'rahad_performance'   => get_option( 'rahad_performance_settings', array() ),
+				'rahad_custom_code'   => get_option( 'rahad_custom_code_settings', array() ),
+				'rahad_role_manager'  => get_option( 'rahad_role_settings', array() ),
+				'rahad_header_footer' => get_option( 'rahad_header_footer_settings', array() ),
+				'rahad_animations'    => get_option( 'rahad_animation_settings', array() ),
+			),
+			'rahad_stats'    => array(
+				'rahad_total_widgets'   => count( $rahad_available_widgets ),
+				'rahad_enabled_widgets' => count( array_filter( $rahad_enabled_widgets ) ),
+				'rahad_templates'       => (int) wp_count_posts( 'rahad_template' )->publish,
+			),
+		);
+	}
+
+	/**
+	 * Plugin activation
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function activate() {
+		// Include activator and run activation
+		require_once rahad_PLUGIN_PATH . 'includes/class-rahad-activator.php';
+		rahad_Activator::rahad_activate();
+	}
+
+	/**
+	 * Plugin deactivation
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 */
+	public function deactivate() {
+		require_once rahad_PLUGIN_PATH . 'includes/class-rahad-activator.php';
+		rahad_Activator::rahad_deactivate();
+	}
+}
+
+RahPowerAddons::instance();

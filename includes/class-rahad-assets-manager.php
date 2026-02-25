@@ -35,15 +35,19 @@ class rahad_Assets_Manager {
 	 * @param rahad_Performance_Module $rahad_performance_module Performance module.
 	 */
 	public function __construct( $rahad_widget_manager, $rahad_performance_module ) {
-		$this->rahad_widget_manager    = $rahad_widget_manager;
+		$this->rahad_widget_manager     = $rahad_widget_manager;
 		$this->rahad_performance_module = $rahad_performance_module;
 
-		// Only load on frontend
+		// Frontend assets
 		add_action( 'wp_enqueue_scripts', array( $this, 'rahad_register_frontend_assets' ), 5 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'rahad_enqueue_frontend_assets' ), 20 );
+
+		// Elementor editor assets - match magical-addons pattern
+		add_action( 'elementor/editor/after_enqueue_styles', array( $this, 'rahad_enqueue_editor_styles' ) );
+		add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'rahad_enqueue_editor_scripts' ) );
 		
-		// Only load in Elementor editor (not admin)
-		add_action( 'elementor/editor/before_enqueue_scripts', array( $this, 'rahad_enqueue_preview_assets' ) );
+		// Elementor preview/frontend
+		add_action( 'elementor/frontend/after_enqueue_scripts', array( $this, 'rahad_enqueue_frontend_scripts' ) );
 	}
 
 	/**
@@ -54,17 +58,17 @@ class rahad_Assets_Manager {
 	public function rahad_register_frontend_assets() {
 		// Main frontend styles
 		wp_register_style( 'rahad_frontend', rahad_PLUGIN_URL . 'assets/css/frontend.css', array(), rahad_PLUGIN_VERSION );
-		
-		// Magical widgets CSS (separate files for each widget)
+
+		// Widget-specific CSS
 		wp_register_style( 'rahad_card', rahad_PLUGIN_URL . 'assets/css/rahad-card.css', array(), rahad_PLUGIN_VERSION );
 		wp_register_style( 'rahad_infobox', rahad_PLUGIN_URL . 'assets/css/rahad-infobox.css', array(), rahad_PLUGIN_VERSION );
 		wp_register_style( 'rahad_progressbar', rahad_PLUGIN_URL . 'assets/css/rahad-progressbar.css', array(), rahad_PLUGIN_VERSION );
-		
+
 		// Icon system
 		wp_register_style( 'rahad_icon_system', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', array(), '6.5.2' );
-		
+
 		// Scripts
-		wp_register_script( 'rahad_frontend', rahad_PLUGIN_URL . 'assets/js/frontend.js', array(), rahad_PLUGIN_VERSION, true );
+		wp_register_script( 'rahad_frontend', rahad_PLUGIN_URL . 'assets/js/frontend.js', array( 'jquery' ), rahad_PLUGIN_VERSION, true );
 		wp_register_script( 'rahad_gsap', 'https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js', array(), '3.12.7', true );
 	}
 
@@ -92,8 +96,8 @@ class rahad_Assets_Manager {
 			}
 
 			$rahad_is_elementor_post = ! empty( get_post_meta( $rahad_post_id, '_elementor_edit_mode', true ) );
-			$rahad_performance       = $this->rahad_performance_module->rahad_get_performance_settings();
-			$rahad_lazy_load_assets  = ! empty( $rahad_performance['rahad_lazy_load_assets'] );
+			$rahad_performance      = $this->rahad_performance_module->rahad_get_performance_settings();
+			$rahad_lazy_load_assets = ! empty( $rahad_performance['rahad_lazy_load_assets'] );
 
 			if ( $rahad_is_elementor_post ) {
 				if ( $rahad_lazy_load_assets ) {
@@ -120,7 +124,7 @@ class rahad_Assets_Manager {
 		wp_enqueue_style( 'rahad_frontend' );
 		wp_enqueue_script( 'rahad_frontend' );
 
-		// Enqueue magical widget styles based on used widgets
+		// Enqueue widget styles based on used widgets
 		if ( ! empty( $rahad_used_widgets ) ) {
 			if ( in_array( 'rahad_magical_card', $rahad_used_widgets ) ) {
 				wp_enqueue_style( 'rahad_card' );
@@ -154,15 +158,23 @@ class rahad_Assets_Manager {
 	}
 
 	/**
-	 * Enqueue assets in Elementor preview.
-	 * Load all widget CSS for proper editor rendering.
+	 * Enqueue frontend scripts.
 	 *
 	 * @return void
 	 */
-	public function rahad_enqueue_preview_assets() {
+	public function rahad_enqueue_frontend_scripts() {
+		wp_enqueue_script( 'rahad_frontend' );
+	}
+
+	/**
+	 * Enqueue styles in Elementor editor.
+	 *
+	 * @return void
+	 */
+	public function rahad_enqueue_editor_styles() {
 		$this->rahad_register_frontend_assets();
 		
-		// Load frontend base styles
+		// Load frontend base styles in editor
 		wp_enqueue_style( 'rahad_frontend' );
 		
 		// Load all widget CSS in editor for proper preview
@@ -170,6 +182,16 @@ class rahad_Assets_Manager {
 		wp_enqueue_style( 'rahad_infobox' );
 		wp_enqueue_style( 'rahad_progressbar' );
 		
+		// Load icon system in editor
+		wp_enqueue_style( 'rahad_icon_system' );
+	}
+
+	/**
+	 * Enqueue scripts in Elementor editor.
+	 *
+	 * @return void
+	 */
+	public function rahad_enqueue_editor_scripts() {
 		wp_enqueue_script( 'rahad_frontend' );
 	}
 }

@@ -1,0 +1,48 @@
+/* Search Bar Widget Styles */
+.rahad-search-bar {
+	display: flex;
+	align-items: center;
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.rahad-search-bar input {
+	flex: 1;
+	padding: 12px 16px;
+	border: none;
+	outline: none;
+	font-size: 14px;
+	background: transparent;
+}
+
+.rahad-search-bar input::placeholder {
+	color: #94a3b8;
+}
+
+.rahad-search-bar button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 16px;
+	background: #0d5bff;
+	color: #ffffff;
+	border: none;
+	cursor: pointer;
+	transition: background 0.25s ease;
+}
+
+.rahad-search-bar button:hover {
+	background: #063eb5;
+}
+
+/* Search Bar with Icon */
+.rahad-search-bar-icon {
+	padding-left: 12px;
+}
+
+/* Search Bar Full Width */
+.rahad-search-bar-full {
+	width: 100%;
+}

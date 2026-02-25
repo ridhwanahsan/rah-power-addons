@@ -1,0 +1,74 @@
+/* Team Members Widget Styles */
+.rahad-team-member {
+	text-align: center;
+	padding: 24px;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	background: #ffffff;
+	transition: all 0.25s ease;
+}
+
+.rahad-team-member:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+	transform: translateY(-5px);
+}
+
+.rahad-team-member-image {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto 16px;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.rahad-team-member-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rahad-team-member-name {
+	margin: 0 0 6px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #0f172a;
+}
+
+.rahad-team-member-role {
+	margin: 0 0 12px;
+	font-size: 14px;
+	color: #0d5bff;
+	font-weight: 500;
+}
+
+.rahad-team-member-bio {
+	margin: 0 0 16px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #64748b;
+}
+
+.rahad-team-member-social {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.rahad-team-member-social a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	background: #f1f5f9;
+	color: #64748b;
+	border-radius: 50%;
+	text-decoration: none;
+	transition: all 0.25s ease;
+}
+
+.rahad-team-member-social a:hover {
+	background: #0d5bff;
+	color: #ffffff;
+}

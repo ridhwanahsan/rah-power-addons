@@ -1,0 +1,98 @@
+/* Pricing Table Widget Styles */
+.rahad-pricing-table {
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 30px;
+	background: #ffffff;
+	text-align: center;
+	transition: all 0.25s ease;
+}
+
+.rahad-pricing-table:hover {
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+	transform: translateY(-5px);
+}
+
+.rahad-pricing-header {
+	margin-bottom: 24px;
+}
+
+.rahad-pricing-title {
+	margin: 0 0 12px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #0f172a;
+}
+
+.rahad-pricing-price {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 4px;
+}
+
+.rahad-pricing-currency {
+	font-size: 24px;
+	font-weight: 600;
+	color: #0d5bff;
+}
+
+.rahad-pricing-amount {
+	font-size: 48px;
+	font-weight: 700;
+	color: #0f172a;
+	line-height: 1;
+}
+
+.rahad-pricing-period {
+	font-size: 14px;
+	color: #64748b;
+}
+
+.rahad-pricing-features {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 24px;
+}
+
+.rahad-pricing-features li {
+	padding: 8px 0;
+	font-size: 14px;
+	color: #334155;
+	border-bottom: 1px solid #f1f5f9;
+}
+
+.rahad-pricing-features li:last-child {
+	border-bottom: none;
+}
+
+.rahad-pricing-features i {
+	color: #10b981;
+	margin-right: 8px;
+}
+
+.rahad-pricing-button {
+	display: inline-block;
+	padding: 12px 24px;
+	background: #0d5bff;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 8px;
+	transition: all 0.25s ease;
+}
+
+.rahad-pricing-button:hover {
+	background: #063eb5;
+	color: #ffffff;
+}
+
+/* Pricing Table Featured */
+.rahad-pricing-table.rahad-pricing-featured {
+	border-color: #0d5bff;
+	background: linear-gradient(145deg, #ffffff, #f0f5ff);
+}
+
+.rahad-pricing-table.rahad-pricing-featured .rahad-pricing-button {
+	background: #0d5bff;
+}

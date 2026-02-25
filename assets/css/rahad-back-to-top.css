@@ -1,0 +1,23 @@
+/* Back to Top Widget Styles */
+.rahad-back-to-top-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border: none;
+	padding: 10px 16px;
+	background: #111827;
+	color: #ffffff;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+
+.rahad-back-to-top-button:hover {
+	background: #1f2937;
+	transform: translateY(-2px);
+}
+
+.rahad-back-to-top-button i,
+.rahad-back-to-top-button svg {
+	font-size: 14px;
+}

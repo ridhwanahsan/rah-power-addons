@@ -1,0 +1,83 @@
+/* Tabs Widget Styles */
+.rahad-tabs {
+	display: flex;
+	flex-direction: column;
+}
+
+.rahad-tabs-nav {
+	display: flex;
+	gap: 2px;
+	background: #f1f5f9;
+	padding: 4px;
+	border-radius: 8px;
+}
+
+.rahad-tab-button {
+	padding: 12px 20px;
+	background: transparent;
+	border: none;
+	font-size: 14px;
+	font-weight: 600;
+	color: #64748b;
+	cursor: pointer;
+	border-radius: 6px;
+	transition: all 0.25s ease;
+}
+
+.rahad-tab-button:hover {
+	color: #0f172a;
+}
+
+.rahad-tab-button.active {
+	background: #ffffff;
+	color: #0d5bff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rahad-tabs-content {
+	padding: 20px 0;
+}
+
+.rahad-tab-pane {
+	display: none;
+}
+
+.rahad-tab-pane.active {
+	display: block;
+	animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+/* Tabs Horizontal */
+.rahad-tabs-horizontal .rahad-tabs-nav {
+	flex-direction: row;
+}
+
+/* Tabs Vertical */
+.rahad-tabs-vertical {
+	flex-direction: row;
+}
+
+.rahad-tabs-vertical .rahad-tabs-nav {
+	flex-direction: column;
+	width: 200px;
+	flex-shrink: 0;
+}
+
+.rahad-tabs-vertical .rahad-tabs-content {
+	flex: 1;
+}
+
+@media (max-width: 767px) {
+	.rahad-tabs-vertical {
+		flex-direction: column;
+	}
+	
+	.rahad-tabs-vertical .rahad-tabs-nav {
+		width: 100%;
+	}
+}

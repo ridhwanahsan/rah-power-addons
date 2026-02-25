@@ -1,0 +1,288 @@
+﻿/**
+ * Rah Power Addons - Frontend Base Styles
+ * These styles are scoped to elementor-widget elements to prevent admin conflicts
+ */
+
+/* Base widget container */
+.elementor-widget-rahad_banner .rahad-banner-widget {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 24px;
+	align-items: center;
+	padding: 24px;
+	border: 1px solid #d9dee5;
+	border-radius: 14px;
+	background: linear-gradient(145deg, #ffffff, #f3f8ff);
+}
+
+.elementor-widget-rahad_banner .rahad-banner-subtitle {
+	display: inline-block;
+	font-size: 12px;
+	letter-spacing: 1.2px;
+	text-transform: uppercase;
+	color: #3b5bcc;
+	margin-bottom: 10px;
+}
+
+.elementor-widget-rahad_banner .rahad-banner-title {
+	font-size: 32px;
+	line-height: 1.2;
+	margin: 0 0 12px;
+}
+
+.elementor-widget-rahad_banner .rahad-banner-description {
+	font-size: 16px;
+	color: #3d4b5f;
+}
+
+.elementor-widget-rahad_banner .rahad-banner-button,
+.elementor-widget-rahad_button .rahad-widget-button,
+.elementor-widget-rahad_call_to_action .rahad-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 18px;
+	border-radius: 8px;
+	background: #0d5bff;
+	color: #ffffff;
+	text-decoration: none;
+	margin-top: 12px;
+	font-weight: 600;
+	transition: all 0.25s ease;
+}
+
+.elementor-widget-rahad_banner .rahad-banner-button:hover,
+.elementor-widget-rahad_button .rahad-widget-button:hover,
+.elementor-widget-rahad_call_to_action .rahad-button:hover {
+	background: #063eb5;
+	color: #ffffff;
+}
+
+.elementor-widget-rahad_call_to_action .rahad-button-secondary {
+	background: #0f172a;
+}
+
+/* Simple Widget */
+.elementor-widget-rahad_simple .rahad-simple-widget {
+	border: 1px solid #dbe3f0;
+	border-radius: 10px;
+	padding: 20px;
+	background: #ffffff;
+}
+
+.elementor-widget-rahad_simple .rahad-widget-title {
+	margin: 0 0 10px;
+}
+
+/* Countdown Widget */
+.elementor-widget-rahad_countdown .rahad-countdown {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.elementor-widget-rahad_countdown .rahad-countdown-item {
+	display: inline-flex;
+	gap: 6px;
+	align-items: baseline;
+	padding: 8px 12px;
+	background: #f5f7ff;
+	border-radius: 8px;
+}
+
+.elementor-widget-rahad_countdown .rahad-countdown-number {
+	font-size: 24px;
+	font-weight: bold;
+	color: #0f172a;
+}
+
+.elementor-widget-rahad_countdown .rahad-countdown-label {
+	font-size: 12px;
+	color: #64748b;
+}
+
+/* Progress Bar Widget */
+.elementor-widget-rahad_progress_bar .rahad-progress-track {
+	height: 12px;
+	background: #e5e7eb;
+	border-radius: 999px;
+	overflow: hidden;
+}
+
+.elementor-widget-rahad_progress_bar .rahad-progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, #00a9ff, #0065ff);
+}
+
+.elementor-widget-rahad_progress_bar .rahad-progress-header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+/* Posts Grid Widget */
+.elementor-widget-rahad_posts_grid .rahad-posts-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 20px;
+}
+
+.elementor-widget-rahad_posts_grid .rahad-post-card {
+	border: 1px solid #e3e8ef;
+	border-radius: 10px;
+	padding: 14px;
+	background: #ffffff;
+}
+
+.elementor-widget-rahad_posts_grid .rahad-post-thumb img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+/* Search Bar Widget */
+.elementor-widget-rahad_search_bar .rahad-search-bar-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.elementor-widget-rahad_search_bar .rahad-search-field {
+	flex: 1 1 220px;
+	padding: 10px 12px;
+	border: 1px solid #cad5e1;
+	border-radius: 8px;
+}
+
+.elementor-widget-rahad_search_bar .rahad-search-submit {
+	padding: 10px 16px;
+	border: none;
+	border-radius: 8px;
+	background: #0f172a;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+/* Nav Menu Widget */
+.elementor-widget-rahad_nav_menu .rahad-nav-menu-list {
+	list-style: none;
+	display: flex;
+	gap: 14px;
+	padding: 0;
+	margin: 0;
+	flex-wrap: wrap;
+}
+
+.elementor-widget-rahad_nav_menu .rahad-nav-menu-list li {
+	margin: 0;
+}
+
+/* Back to Top Widget */
+.elementor-widget-rahad_back_to_top .rahad-back-to-top-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border: none;
+	padding: 10px 16px;
+	background: #111827;
+	color: #ffffff;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+/* Dual Button Widget */
+.elementor-widget-rahad_dual_button .rahad-dual-button-widget {
+	display: inline-flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+/* Image Comparison Widget */
+.elementor-widget-rahad_image_comparison .rahad-image-comparison-inner {
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.elementor-widget-rahad_image_comparison .rahad-image-comparison-inner img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.elementor-widget-rahad_image_comparison .rahad-comparison-before-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+.elementor-widget-rahad_image_comparison .rahad-comparison-range {
+	position: absolute;
+	bottom: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: min(80%, 320px);
+}
+
+/* Flip Box Widget */
+.elementor-widget-rahad_flip_box .rahad-flip-box-widget {
+	perspective: 1000px;
+	min-height: 220px;
+}
+
+.elementor-widget-rahad_flip_box .rahad-flip-box-inner {
+	position: relative;
+	width: 100%;
+	height: 220px;
+	transition: transform 0.5s ease;
+	transform-style: preserve-3d;
+}
+
+.elementor-widget-rahad_flip_box .rahad-flip-box-widget:hover .rahad-flip-box-inner {
+	transform: rotateY(180deg);
+}
+
+.elementor-widget-rahad_flip_box .rahad-flip-box-front,
+.elementor-widget-rahad_flip_box .rahad-flip-box-back {
+	position: absolute;
+	inset: 0;
+	padding: 20px;
+	border: 1px solid #dae3ee;
+	border-radius: 10px;
+	background: #ffffff;
+	backface-visibility: hidden;
+}
+
+.elementor-widget-rahad_flip_box .rahad-flip-box-back {
+	transform: rotateY(180deg);
+	background: #0f172a;
+	color: #ffffff;
+}
+
+/* Animation helper */
+[data-rahad-animation='1'] {
+	opacity: 0;
+}
+
+/* Header/Footer Template */
+.rahad-header-template,
+.rahad-footer-template {
+	position: relative;
+	z-index: 5;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+	.elementor-widget-rahad_banner .rahad-banner-title {
+		font-size: 26px;
+	}
+
+	.elementor-widget-rahad_nav_menu .rahad-nav-menu-list {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}

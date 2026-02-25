@@ -1,0 +1,172 @@
+/**
+ * Rah Power Addons - Card Widget CSS
+ * Based on magical-addons-for-elementor styling approach
+ */
+
+/* Card Base Styles */
+.rahad-mg-card {
+	border-radius: 2px;
+	background-color: #fff;
+	box-shadow: 0 0.2rem 2.8rem rgba(36, 36, 36, 0.1);
+}
+
+.rahad-mg-card-img {
+	position: relative;
+	overflow: hidden;
+}
+
+.rahad-mg-card-img img {
+	border-top-left-radius: calc(0.5rem - 1px);
+	border-top-right-radius: calc(0.5rem - 1px);
+	width: 100%;
+}
+
+.rahad-mg-card-text {
+	padding: 19.2px;
+	padding: 1.2rem;
+	overflow: hidden;
+}
+
+.rahad-mg-card-text p {
+	margin-bottom: 1.8rem;
+}
+
+.rahad-mg-card-title {
+	margin: 0.8rem 0 1rem;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+/* Card Badge */
+span.rahad-mgc-badge {
+	position: absolute;
+	bottom: -10px;
+	left: 10px;
+	background: #fff;
+	color: #000;
+	padding: 2px 10px;
+	border-radius: 20px;
+	border: 2px solid #555;
+	font-size: 14px;
+	font-weight: 300;
+}
+
+span.rahad-mgc-badge.rahad-mgcb-left-bottom {
+	bottom: 10px;
+	top: auto;
+	left: 10px;
+	right: auto;
+}
+
+span.rahad-mgc-badge.rahad-mgcb-left-top {
+	bottom: auto;
+	top: 0;
+	left: 0;
+	right: auto;
+	margin: 5px 0 0 10px;
+}
+
+span.rahad-mgc-badge.rahad-mgcb-right-top {
+	bottom: auto;
+	top: 0;
+	left: auto;
+	right: 0;
+	margin: 5px 10px 0 0;
+}
+
+span.rahad-mgc-badge.rahad-mgcb-right-bottom {
+	bottom: 10px;
+	top: auto;
+	left: auto;
+	right: 10px;
+}
+
+/* Card Button */
+.rahad-mg-btn {
+	padding: 10px 15px;
+	background: #222;
+	text-transform: uppercase;
+	color: #fff;
+	display: inline-block;
+	transition: 0.3s;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.rahad-mg-btn:hover,
+.rahad-mg-btn:focus {
+	text-decoration: inherit;
+	background: #555;
+	color: #fff;
+	box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.rahad-mg-btn i {
+	font-size: 80%;
+	transition: 0.3s;
+}
+
+.rahad-mg-btn span.right svg {
+	fill: #fff;
+	width: 9px;
+}
+
+/* Card Image Position - Left */
+.rahad-mg-card-img-left .rahad-mg-card {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.rahad-mg-card-img-left .rahad-mg-card-text,
+.rahad-mg-card-img-left .rahad-mg-card-img {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.rahad-mg-card-img-left .rahad-mg-card-img {
+	padding-left: 20px;
+}
+
+.rahad-mg-card-img-left .rahad-mg-card-img img {
+	border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
+}
+
+/* Card Image Position - Right */
+.rahad-mg-card-img-right .rahad-mg-card {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	text-align: right;
+}
+
+.rahad-mg-card-img-right .rahad-mg-card-text,
+.rahad-mg-card-img-right .rahad-mg-card-img {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.rahad-mg-card-img-right .rahad-mg-card-img {
+	padding-right: 20px;
+}
+
+.rahad-mg-card-img-right .rahad-mg-card-img img {
+	border-radius: 0 calc(0.5rem - 1px) calc(0.5rem - 1px) 0;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+	.rahad-mg-card-img-left .rahad-mg-card,
+	.rahad-mg-card-img-right .rahad-mg-card {
+		display: block;
+	}
+
+	.rahad-mg-card .rahad-mg-card-text {
+		flex: inherit !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		min-width: 100% !important;
+	}
+}

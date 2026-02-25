@@ -1,0 +1,54 @@
+/* Countdown Widget Styles */
+.rahad-countdown {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.rahad-countdown-item {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 6px;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 16px;
+	background: #f5f7ff;
+	border-radius: 8px;
+	min-width: 70px;
+}
+
+.rahad-countdown-number {
+	font-size: 24px;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.rahad-countdown-label {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #64748b;
+}
+
+.rahad-countdown-separator {
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+@media (max-width: 480px) {
+	.rahad-countdown {
+		gap: 8px;
+	}
+	
+	.rahad-countdown-item {
+		padding: 8px 10px;
+		min-width: 55px;
+	}
+	
+	.rahad-countdown-number {
+		font-size: 18px;
+	}
+}

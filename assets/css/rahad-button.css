@@ -1,0 +1,29 @@
+/* Call to Action / Button Widget Styles */
+.rahad-widget-button,
+.rahad-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 18px;
+	border-radius: 8px;
+	background: #0d5bff;
+	color: #ffffff;
+	text-decoration: none;
+	margin-top: 12px;
+	font-weight: 600;
+	transition: all 0.25s ease;
+}
+
+.rahad-widget-button:hover,
+.rahad-button:hover {
+	background: #063eb5;
+	color: #ffffff;
+}
+
+.rahad-button-secondary {
+	background: #0f172a;
+}
+
+.rahad-button-secondary:hover {
+	background: #1e293b;
+}

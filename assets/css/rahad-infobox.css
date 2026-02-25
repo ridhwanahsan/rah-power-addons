@@ -1,0 +1,144 @@
+/**
+ * Rah Power Addons - Info Box Widget CSS
+ */
+
+/* Info Box Widget Styles */
+.rahad-mg-infobox {
+    padding: 32px;
+    padding: 2rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+    justify-content: center;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0.2rem 2.8rem rgba(36, 36, 36, 0.1);
+}
+
+.rahad-mg-infobox .rahad-mg-infobox-inner,
+.rahad-mg-infobox.rahad-mg-infobox-ps-title-left .rahad-mg-infobox-title-wrap,
+.rahad-mg-infobox.rahad-mg-infobox-ps-title-right .rahad-mg-infobox-title-wrap {
+    display: flex;
+    gap: 5px;
+}
+
+.rahad-mg-infobox.rahad-mg-infobox-ps-top .rahad-mg-infobox-inner {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rahad-mg-infobox.rahad-mg-infobox-ps-left .rahad-mg-infobox-inner {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.rahad-mg-infobox.rahad-mg-infobox-ps-right .rahad-mg-infobox-inner {
+    flex-direction: row-reverse;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.rahad-mg-infobox.rahad-mg-infobox-ps-title-left .rahad-mg-infobox-title-wrap {
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rahad-mg-infobox.rahad-mg-infobox-ps-title-right .rahad-mg-infobox-title-wrap {
+    flex-direction: row-reverse;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rahad-mgicon-area {
+    display: flex;
+}
+
+.rahad-mg-infobox-icon i {
+    font-size: 40px;
+    color: #000;
+}
+
+.rahad-mg-infobox-icon svg {
+    width: 40px;
+    fill: #000;
+}
+
+.rahad-mg-infobox-icon {
+    padding: 10px 0;
+    display: inline-block;
+}
+
+.rahad-mg-infobox-img {
+    margin-bottom: 16px;
+    margin-bottom: 1rem;
+}
+
+.rahad-mg-infobox-img img {
+    max-width: 100%;
+}
+
+.rahad-mg-infobox h2 {
+    font-size: 26px;
+    margin: 10px 0 15px;
+}
+
+.rahad-mg-infobox-title {
+    margin: 12.8px 0 16px;
+}
+
+.rahad-mg-infobox-desc {
+    font-size: 16px;
+    color: #555;
+}
+
+.rahad-mg-infobox-text {
+    flex: 1;
+}
+
+/* Info Box Button */
+.rahad-mg-infobox .rahad-mg-infolink {
+    font-size: 14px;
+    font-weight: 500;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.rahad-mg-infobox a.rahad-mg-btn-text.rahad-mg-infolink i {
+    font-size: 80%;
+    transition: 0.3s;
+}
+
+.rahad-mg-infobox a.rahad-mg-infolink i {
+    font-size: 15px;
+    color: #0d6efd;
+}
+
+.rahad-mg-infobox a.rahad-mg-infolink svg {
+    width: 12px;
+    fill: #0d6efd;
+    transition: 0.3s;
+}
+
+/* Info Box Hover Effects */
+.rahad-mg-infobox.rahad-active-fhover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 3rem rgba(36, 36, 36, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .rahad-mg-infobox {
+        flex-direction: column;
+    }
+    
+    .rahad-mg-infobox.rahad-mg-infobox-ps-left .rahad-mg-infobox-inner,
+    .rahad-mg-infobox.rahad-mg-infobox-ps-right .rahad-mg-infobox-inner {
+        flex-direction: column;
+    }
+}

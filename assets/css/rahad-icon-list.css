@@ -1,0 +1,38 @@
+/* Icon List Widget Styles */
+.rahad-icon-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.rahad-icon-list-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 0;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.rahad-icon-list-item:last-child {
+	border-bottom: none;
+}
+
+.rahad-icon-list-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	color: #0d5bff;
+	font-size: 16px;
+}
+
+.rahad-icon-list-text {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #334155;
+}
+
+.rahad-icon-list-item:hover .rahad-icon-list-text {
+	color: #0d5bff;
+}

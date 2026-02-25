@@ -1,0 +1,46 @@
+/* Accordion Widget Styles */
+.rahad-accordion-item {
+	border: 1px solid #dae3ee;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.rahad-accordion-header {
+	padding: 14px 16px;
+	background: #ffffff;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	transition: background 0.25s ease;
+}
+
+.rahad-accordion-header:hover {
+	background: #f5f7ff;
+}
+
+.rahad-accordion-title {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.rahad-accordion-icon {
+	transition: transform 0.25s ease;
+}
+
+.rahad-accordion-item.active .rahad-accordion-icon {
+	transform: rotate(180deg);
+}
+
+.rahad-accordion-content {
+	padding: 14px 16px;
+	background: #ffffff;
+	border-top: 1px solid #dae3ee;
+	display: none;
+}
+
+.rahad-accordion-item.active .rahad-accordion-content {
+	display: block;
+}

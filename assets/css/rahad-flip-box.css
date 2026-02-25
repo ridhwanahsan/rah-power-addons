@@ -1,0 +1,66 @@
+/* Flip Box Widget Styles */
+.rahad-flip-box-widget {
+	perspective: 1000px;
+	min-height: 220px;
+}
+
+.rahad-flip-box-inner {
+	position: relative;
+	width: 100%;
+	height: 220px;
+	transition: transform 0.5s ease;
+	transform-style: preserve-3d;
+}
+
+.rahad-flip-box-widget:hover .rahad-flip-box-inner {
+	transform: rotateY(180deg);
+}
+
+.rahad-flip-box-front,
+.rahad-flip-box-back {
+	position: absolute;
+	inset: 0;
+	padding: 20px;
+	border: 1px solid #dae3ee;
+	border-radius: 10px;
+	background: #ffffff;
+	backface-visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.rahad-flip-box-back {
+	transform: rotateY(180deg);
+	background: #0f172a;
+	color: #ffffff;
+	border-color: #0f172a;
+}
+
+.rahad-flip-box-icon {
+	margin-bottom: 15px;
+	font-size: 40px;
+	color: #0d5bff;
+}
+
+.rahad-flip-box-back .rahad-flip-box-icon {
+	color: #ffffff;
+}
+
+.rahad-flip-box-title {
+	margin: 0 0 10px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.rahad-flip-box-content {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #64748b;
+}
+
+.rahad-flip-box-back .rahad-flip-box-content {
+	color: #cbd5e1;
+}

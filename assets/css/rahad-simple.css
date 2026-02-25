@@ -1,0 +1,11 @@
+/* Simple Card Widget Styles */
+.rahad-simple-widget {
+	border: 1px solid #dbe3f0;
+	border-radius: 10px;
+	padding: 20px;
+	background: #ffffff;
+}
+
+.rahad-widget-title {
+	margin: 0 0 10px;
+}

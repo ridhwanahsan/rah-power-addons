@@ -1,0 +1,72 @@
+/* Info Box Widget Styles */
+.rahad-info-box {
+	text-align: center;
+	padding: 24px;
+	border: 1px solid #dae3ee;
+	border-radius: 10px;
+	background: #ffffff;
+}
+
+.rahad-info-box-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	margin-bottom: 16px;
+	background: #f5f7ff;
+	border-radius: 50%;
+	font-size: 24px;
+	color: #0d5bff;
+}
+
+.rahad-info-box-title {
+	margin: 0 0 10px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #0f172a;
+}
+
+.rahad-info-box-description {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #64748b;
+}
+
+.rahad-info-box-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 18px;
+	margin-top: 16px;
+	background: #0d5bff;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 6px;
+	transition: all 0.25s ease;
+}
+
+.rahad-info-box-button:hover {
+	background: #063eb5;
+	color: #ffffff;
+}
+
+/* Info Box - Left Align */
+.rahad-info-box-left {
+	text-align: left;
+}
+
+.rahad-info-box-left .rahad-info-box-icon {
+	margin-bottom: 12px;
+}
+
+/* Info Box - Right Align */
+.rahad-info-box-right {
+	text-align: right;
+}
+
+.rahad-info-box-right .rahad-info-box-icon {
+	margin-bottom: 12px;
+}
